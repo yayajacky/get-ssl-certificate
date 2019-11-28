@@ -84,5 +84,6 @@ function get(url, timeout, port, protocol, detailed) {
 }
 
 module.exports = {
-  get: get
+  get: get,
+  pemEncode: pemEncode
 };

@@ -49,7 +49,11 @@ sslCertificate.get('nodejs.org').then(function (certificate) {
 });
 ```
 
-#### Optional parameters: Timeout (in ms), Protocol (Default is 'https:') and Port (Default is 443)
+#### Optional parameters: 
+* Timeout (in ms)
+* Protocol (Default is 'https:')
+* Port (Default is 443)
+* Detailed (Default is false) - If true will retrieve the issuer certificate.
 
 ```
 sslCertificate.get('nodejs.org', 250, 443, 'https:').then(function (certificate) {
@@ -75,6 +79,20 @@ sslCertificate.get('nodejs.org', 250, 443, 'https:').then(function (certificate)
   // ...
   // -----END CERTIFICATE-----
 });
+```
+
+#### pemEncode
+
+* Turn certificate.raw into pemEncoded
+* Useful for converting the issuer certificate
+
+```
+
+sslCertificate.pemEncode(certificate.issuerCertificate.raw.toString('base64'), 64);
+// -----BEGIN CERTIFICATE-----
+// ...
+// -----END CERTIFICATE-----
+
 ```
 
 ## License
